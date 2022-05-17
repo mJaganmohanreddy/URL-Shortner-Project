@@ -1,4 +1,4 @@
-const moongoose = require('moongoose')
+const mongoose = require('mongoose')
 
 const urlSchema = new mongoose.Schema({
 
@@ -26,12 +26,7 @@ const urlSchema = new mongoose.Schema({
         trim: true
     }
 
-
-
-
-
-
 }, { timestamps: true })
 
 
-module.exports = moongoose.module('createurl', urlSchema)
+module.exports = mongoose.model('createurl', urlSchema)
