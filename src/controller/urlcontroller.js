@@ -70,3 +70,4 @@ let getData = async (req,res) => {
     }
 }
 module.exports.createUrl = createUrl
+module.exports.getData = getData
