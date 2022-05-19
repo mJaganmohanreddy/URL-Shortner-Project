@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect("mongodb+srv://jaganreddy-functionup:ORj2ygJHT7jbS3y8@cluster0.nduth.mongodb.net/group22Database?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://jaganreddy-functionup:ORj2ygJHT7jbS3y8@cluster0.nduth.mongodb.net/group22batchDatabase?retryWrites=true&w=majority", {
         useNewUrlParser: true
     })
     .then(() => console.log("MongoDb is connected"))

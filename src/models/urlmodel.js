@@ -12,10 +12,8 @@ const urlSchema = new mongoose.Schema({
     },
 
     longUrl: {
-
         type: String,
         mandatory: true,
-        unique: true,
         trim: true
     },
 
