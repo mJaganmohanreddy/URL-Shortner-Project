@@ -1,6 +1,7 @@
 const shortid = require('shortid');
 const urlmodel = require('../models/urlmodel')
 const redisModule = require('../redisServer')
+const validUrl = require('valid-url')
 const { promisify } = require('util')
 
 
@@ -30,7 +31,7 @@ const createUrl = async function (req, res) {
         if (!isValid(data.longUrl))
             return res.status(400).send({ status: false, message: 'longurl is required in the body' })
 
-        if (!/^(http(s)?:\/\/)?(www.)?([a-zA-Z0-9])+([\-\.]{1}[a-zA-Z0-9]+)*\.[a-zA-Z]{2,5}(:[0-9]{1,5})?(\/[^\s]*)?$/gm.test(data.longUrl))
+        if (!validUrl.isUri(data.longUrl))
             return res.status(400).send({ status: false, message: 'longUrl is not valid url' })
 
         let getFromCache = await GET_ASYNC(`${data.longUrl}`)
