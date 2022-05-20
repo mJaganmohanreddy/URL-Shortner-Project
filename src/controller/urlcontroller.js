@@ -1,7 +1,6 @@
 const shortid = require('shortid');
 const urlmodel = require('../models/urlmodel')
 const redisModule = require('../redisServer')
-const validUrl = require('valid-url')
 const { promisify } = require('util')
 
 
@@ -80,7 +79,7 @@ let getData = async (req,res) => {
         
         let findUrl = await urlmodel.findOne({urlCode : urlCode})
 
-        if(!findUrl) return res.status(302).send({status :false, message : "Invalid code"})
+        if(!findUrl) return res.status(404).send({status :false, message : "Invalid code"})
 
         let setData = JSON.stringify(findUrl.longUrl)
 
